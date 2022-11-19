@@ -1,2 +1,59 @@
-# integration-docs
-A repository for the documentation of the API Integration: endpoints, inputs, outputs, etc. 
+# Speaker Recording Web App Integration Docs 
+
+## Сообщения об ошибках
+
+Иногда происходит ошибка, *понятное* сообщение о которой можно показать пользователю. 
+Тогда возвращается такой Response Body и в приложении напрямую отображается пользователю.
+Если 'display\_message' не будет предоставлен, то в приложении будет выведено общее сообщение о серверной ошибке. 
+```ts
+{
+  // Optional
+  display_message: string,
+}
+
+```
+## Эндпоинты
+
+### `GET /api/v1/texts`
+ 
+Когда диктор заходит в приложение, дергается этот эндпоинт, чтобы получить информацию о текстах, которые нужно записать. 
+Выводом служит список всех текстов.
+
+**Request Body**
+_No request body required_
+
+**200 Response**
+
+```ts
+{
+  "texts": []{
+    "id": string, 
+    "text": string, 
+    "note": string
+  }
+}
+```
+
+**4xx Response**
+
+Любой 4xx Response позволяет вывести сообщение об ошибке напрямую в приложении. Смотри [Сообщения об ошибках](#сообщения-об-ошибках)
+
+### `POST /api/v1/speeches`
+ 
+Когда диктор записал текст, на этот эндпоинт отправляется файл с голосовым сообщением. 
+Request Body кодируется не в JSON, а в MultipartRequest. 
+
+**Request Body**
+```ts
+{
+  "text_id": string,
+  "speech": MultipartFile
+}
+```
+
+**200 Response**
+_No response body_
+
+**4xx Response**
+
+Любой 4xx Response позволяет вывести сообщение об ошибке напрямую в приложении. Смотри [Сообщения об ошибках](#сообщения-об-ошибках)
