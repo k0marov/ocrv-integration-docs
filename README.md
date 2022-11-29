@@ -52,6 +52,7 @@ Request Body кодируется не в JSON, а в MultipartRequest.
 ```ts
 {
   "text_id": string,
+  "retries": int, 
   "speech": MultipartFile
 }
 ```
