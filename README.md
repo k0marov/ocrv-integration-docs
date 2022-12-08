@@ -45,14 +45,14 @@ _No request body required_
  
 Когда диктор записал текст, на этот эндпоинт отправляется файл с голосовым сообщением. 
 
-Request Body кодируется не в JSON, а в MultipartRequest. 
+Request Body кодируется не в JSON, а в FormData. 
 
 **Request Body**
 
 ```ts
 {
   "text_id": string,
-  "retries": int, 
+  "retries": string, 
   "speech": MultipartFile
 }
 ```
