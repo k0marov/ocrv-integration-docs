@@ -55,7 +55,8 @@ Request Body кодируется не в JSON, а в FormData.
 {
   "text_id": string,
   "retries": string, 
-  "speech": MultipartFile
+  "speech": file, 
+  "isVideo": boolean, 
 }
 ```
 
