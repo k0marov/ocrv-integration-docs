@@ -33,8 +33,8 @@ _No request body required_
     "id": string, 
     "text": string, 
     "note": string,
-    "minDuration": int, // seconds, optional 
-    "maxDuration": int, // seconds, optional 
+    "min_duration": int, // seconds, optional 
+    "max_duration": int, // seconds, optional 
   }
 }
 ```
@@ -56,7 +56,7 @@ Request Body кодируется не в JSON, а в FormData.
   "text_id": string,
   "retries": string, 
   "speech": file, 
-  "isVideo": boolean, 
+  "is_video": boolean, 
 }
 ```
 
