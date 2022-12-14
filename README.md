@@ -32,7 +32,9 @@ _No request body required_
   "texts": []{
     "id": string, 
     "text": string, 
-    "note": string
+    "note": string,
+    "minDuration": int, // seconds, optional 
+    "maxDuration": int, // seconds, optional 
   }
 }
 ```
